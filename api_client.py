@@ -11,7 +11,7 @@ class APIclient:
             "x-api-key": self.API_KEY
         }
         
-    def get_users(self, page=1):
+    def get_users(self, page=2):
         url = f"{self.BASE_URL}/users?page={page}"
         response = requests.get(url, headers=self.headers)
         if response.status_code == 200:

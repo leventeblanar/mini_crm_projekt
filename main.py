@@ -7,7 +7,11 @@ def main():
         users_data = client.get_users()
         print("A felhasználók listája:")
         for user in users_data["data"]:
-            print(f"{user['id']}: {user['first_name']} {user['last_name']} - {user['email']}")
+            print(f"UserID: {user['id']}")
+            print(f"First name: {user['first_name']}")
+            print(f"Last name: {user['last_name']}")
+            print(f"email: {user['email']}")
+            print(f"-"*40)
     except Exception as e:
         print(str(e))
     
