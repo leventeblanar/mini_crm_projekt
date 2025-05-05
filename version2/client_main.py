@@ -33,8 +33,24 @@ def main():
             print("\n-- Create new user --")
             first_name = input("First name: ").capitalize()
             last_name = input("Last name: ").capitalize()
-            email = input("Email: ")
-            avatar = input("Avatar URL: ")
+
+            email_valid = False
+
+            while not email_valid:
+                email = input("Email: ")
+                if "@" not in email or "." not in email:
+                    print("Please provide a valid email address.")
+                else:
+                    email_valid = True
+
+            avatar_valid = False
+
+            while not avatar_valid:
+                avatar = input("Avatar URL: ")
+                if "https://" not in avatar or "." not in avatar:
+                    print("Please provide a valid link for the users avatar.")
+                else:
+                    avatar_valid = True
             
             new_user = {
                 "first_name": first_name,
