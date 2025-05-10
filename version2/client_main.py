@@ -42,15 +42,8 @@ def main():
                     print("Please provide a valid email address.")
                 else:
                     email_valid = True
-
-            avatar_valid = False
-
-            while not avatar_valid:
-                phone = input("Phone: ")
-                if "https://" not in avatar or "." not in avatar:
-                    print("Please provide a valid link for the users avatar.")
-                else:
-                    avatar_valid = True
+            
+            phone = input("Phone: ")
             
             new_user = {
                 "first_name": first_name,

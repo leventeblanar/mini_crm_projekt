@@ -5,7 +5,7 @@ from models import User as UserModel
 from pydantic import BaseModel, Field
 from typing import List, Optional
 from uuid import uuid4
-from schemas import UserSchema
+from schemas import UserSchema, UserCreate
 
 app = FastAPI()
 
@@ -33,7 +33,7 @@ def get_user(user_id: str, db: Session = Depends(get_db)):
 
 # Create new user
 @app.post("/users", response_model=UserSchema)
-def create_user(user: UserSchema, db: Session = Depends(get_db)):
+def create_user(user: UserCreate, db: Session = Depends(get_db)):
     if not all([user.first_name, user.last_name, user.email, user.phone]):
         raise HTTPException(status_code=400, detail="Missing user data")
     
@@ -63,7 +63,7 @@ def update_user(user_id: str, updated_user: UserSchema, db: Session = Depends(ge
     user.first_name = updated_user.first_name
     user.last_name = updated_user.last_name
     user.email = updated_user.email
-    user.phine = updated_user.phone
+    user.phone = updated_user.phone
     
     db.commit()
     db.refresh(user)
