@@ -34,13 +34,13 @@ def main():
             first_name = input("First name: ").capitalize()
             last_name = input("Last name: ").capitalize()
             email = input("Email: ")
-            avatar = input("Avatar URL: ")
+            phone = input("Phone: ")
             
             new_user = {
                 "first_name": first_name,
                 "last_name": last_name,
                 "email": email,
-                "avatar": avatar
+                "phone": phone
             }
             
             result = client.create_user(new_user)
@@ -54,13 +54,13 @@ def main():
             first_name = input("First name: ").capitalize()
             last_name = input("Last name: ").capitalize()
             email = input("Email: ")
-            avatar = input("Avatar URL: ")
+            phone = input("Phone: ")
 
             updated_user = {
                 "first_name": first_name,
                 "last_name": last_name,
                 "email": email,
-                "avatar": avatar
+                "phone": phone
             }
             
             result = client.update_user(user_id, updated_user)
